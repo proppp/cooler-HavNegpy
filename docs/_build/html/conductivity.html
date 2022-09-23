@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Conductivity Module &#8212; HavNegpy 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial for HN module" href="HN_tutorial.html" />
+    <link rel="prev" title="HN derivative Module" href="deri.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="conductivity-module">
+<h1>Conductivity Module<a class="headerlink" href="#conductivity-module" title="Permalink to this headline">¶</a></h1>
+<section id="conductivity-class">
+<h2><code class="docutils literal notranslate"><span class="pre">Conductivity</span> <span class="pre">class</span></code><a class="headerlink" href="#conductivity-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">HavNegpy.</span></span><span class="sig-name descname"><span class="pre">Conductivity</span></span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to analyze real part of complex conductivity</p>
+</dd></dl>
+
+</section>
+<section id="havnegpy-conductivity-fit-function">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">fit</span> <span class="pre">function</span></code><a class="headerlink" href="#havnegpy-conductivity-fit-function" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.jonscher_function">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">jonscher_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.jonscher_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.jonscher_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jonscher power law function to fit the conductivity data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – log frequency</p></li>
+<li><p><strong>fc</strong> (<em>float</em>) – onset frequency</p></li>
+<li><p><strong>DC</strong> (<em>float</em>) – DC conductivity value</p></li>
+<li><p><strong>n</strong> (<em>float</em>) – power law exponent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – estimated log conductivity based on supplied parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="havnegpy-conductivity-dump-methods">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">dump</span> <span class="pre">methods</span></code><a class="headerlink" href="#havnegpy-conductivity-dump-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.dump_parameters">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">dump_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.dump_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.dump_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>dumps the initial fit parameters for fit function as a dictionary in a json file
+to load it during curve fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="havnegpy-conductivity-methods-for-fitting-and-saving-the-fit-results">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">fitting</span> <span class="pre">and</span> <span class="pre">saving</span> <span class="pre">the</span> <span class="pre">fit</span> <span class="pre">results</span></code><a class="headerlink" href="#havnegpy-conductivity-methods-for-fitting-and-saving-the-fit-results" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.create_analysis_file">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">create_analysis_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.create_analysis_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.create_analysis_file" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Creates a file to save the fit results based on the choice of fit function</p>
+<p>Provides option to use an existing file and creates a new file if not found</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.select_range">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">select_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.select_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.select_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the region of interest to fit data using mplcursors
+allows two clicks to select the lower and upper bound of the x-axis
+and returns the selected x and y vaues for fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – log frequency</p></li>
+<li><p><strong>y1</strong> (<em>array</em>) – log real part of complex conductivity</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.fit">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits the conductivity data with choice of fit function
+The fit parameters are declared as global variables to be saved
+via save_fit function</p>
+<p>The initial fit parameters are taken from json file and the final
+fit parameters are dumped in the same json file to be used for next
+iteration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – log frequency.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – log conductivity.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.Conductivity.save_fit">
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">save_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.save_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.save_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the fit parameters of fit function in  a file,
+the file must be created via create_analysis_file function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – Temperature,or can also be an integer
+that corresponds to a file number during analysis.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">HavNegpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hn.html">HN Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deri.html">HN derivative Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conductivity Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conductivity-class"><code class="docutils literal notranslate"><span class="pre">Conductivity</span> <span class="pre">class</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-conductivity-fit-function"><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">fit</span> <span class="pre">function</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-conductivity-dump-methods"><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">dump</span> <span class="pre">methods</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-conductivity-methods-for-fitting-and-saving-the-fit-results"><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">fitting</span> <span class="pre">and</span> <span class="pre">saving</span> <span class="pre">the</span> <span class="pre">fit</span> <span class="pre">results</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HN_tutorial.html">Tutorial for HN module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deri_HN_tutorial.html">Tutorial for HN_derivative module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cond_tutorial_new.html">Tutorial for Conductivity module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="deri.html" title="previous chapter">HN derivative Module</a></li>
+      <li>Next: <a href="HN_tutorial.html" title="next chapter">Tutorial for HN module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Mohamed Kolmangadi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/conductivity.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
