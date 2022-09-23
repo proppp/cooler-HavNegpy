@@ -17,7 +17,7 @@ Welcome to HavNegpy's documentation!
    conductivity.rst
    HN_tutorial.ipynb
    deri_HN_tutorial.ipynb
-   cond_tutorial.ipynb
+   cond_tutorial_new.ipynb
 
 Indices and tables
 ==================
