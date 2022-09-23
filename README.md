@@ -1,4 +1,4 @@
-# exampy
+# HavNegpy
 
 HavNegpy is a python fit package to anaylze dielectric data. 
 HavNeg is an acronym for Havriliak and Negami function, and the fit module is based on this function.
@@ -6,10 +6,10 @@ HavNeg is an acronym for Havriliak and Negami function, and the fit module is ba
 
 ## AUTHOR
 
-Mohamed Aejaz Kolmangadi -- 
+Mohamed Aejaz Kolmangadi 
 
 ## LOOKING FOR HELP?
 
 
-#   H a v N e g p y  
+  
  
