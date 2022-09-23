@@ -1,1 +1,1 @@
-nbshphix
+nbsphinx
