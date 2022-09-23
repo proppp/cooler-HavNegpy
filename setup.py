@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="HavNegpy",
     version="0.1",
-    author="Mohamed Kolmangadi",
+    author="Mohamed Aejaz Kolmangadi",
     author_email="mohamed.kolmangadi@gmail.com",
     description="Python package to analyze dielectric data",
     long_description=long_description,
