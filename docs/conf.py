@@ -44,7 +44,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','.ipynb_checkpoints/*']
 nbsphinx_prompt_width = 0 # no prompts in nbsphinx
 #exclude_patterns = ['.ipynb_checkpoints/*']
 
-#master_doc = 'index'
+master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 
