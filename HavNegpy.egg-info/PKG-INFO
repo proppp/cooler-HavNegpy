@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: HavNegpy
+Version: 0.1
+Summary: Python package to analyze dielectric data
+Author: Mohamed Kolmangadi
+Author-email: mohamed.kolmangadi@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# exampy
+
+HavNegpy is a python package to anaylze dielectric data.
+
+
+## AUTHOR
+
+Mohamed Kolmangadi -- 
+
+## LOOKING FOR HELP?
+
+

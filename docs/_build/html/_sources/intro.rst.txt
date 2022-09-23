@@ -1,0 +1,19 @@
+Introduction
+============
+
+``HavNegpy`` is an Python package to analyze dielectric loss and real part of conductivity. 
+The package contains three modules to analyze the dielectric data. Each module can be instantiated as::
+
+              >>> import HavNegpy as h
+              >>> hn = h.HN()
+              >>> hn_deri = h.HN_derivative()
+              >>> cond = h.Conductivity()
+	   
+
+All modules contain same methods which includes:
+``selecting range of data``, ``dumping initial fit parameters``, ``perform least squares fitting``, ``creating an analysis file to save fit results``, and ``save the fit results``.
+Besides, other method include ``initial view of fit parameters``
+
+A clear description is provided in the tutorial.
+
+

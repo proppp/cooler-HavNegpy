@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>HN derivative Module &#8212; HavNegpy 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conductivity Module" href="conductivity.html" />
+    <link rel="prev" title="HN Module" href="hn.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="hn-derivative-module">
+<h1>HN derivative Module<a class="headerlink" href="#hn-derivative-module" title="Permalink to this headline">¶</a></h1>
+<section id="hn-derivative-class">
+<h2><code class="docutils literal notranslate"><span class="pre">HN_derivative</span> <span class="pre">class</span></code><a class="headerlink" href="#hn-derivative-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">HavNegpy.</span></span><span class="sig-name descname"><span class="pre">HN_derivative</span></span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to analyze the derivaite of real part of complex permittivity with derivative HN function</p>
+<p>Fit functions include single, double, derivative HN with Electrode polarization</p>
+</dd></dl>
+
+</section>
+<section id="havnegpy-hn-derivative-fit-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">fit</span> <span class="pre">functions</span></code><a class="headerlink" href="#havnegpy-hn-derivative-fit-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.deri_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">deri_hn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.deri_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.deri_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>derivaitive HN fit function to fit single peak</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – frequency.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – symmetric fractional parameter.</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – asymmetric fractional parameter.</p></li>
+<li><p><strong>fm</strong> (<em>float</em>) – maximum frequency of the peak.</p></li>
+<li><p><strong>deps</strong> (<em>float</em>) – dielectric strength.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – estimated log derivative of epsilon’ based on the supplied parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.deri_hn_ep">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">deri_hn_ep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.deri_hn_ep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.deri_hn_ep" title="Permalink to this definition">¶</a></dt>
+<dd><p>derivaitive HN fit function to fit single peak along with
+electrode polarization(ep)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – frequency.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – symmetric fractional parameter.</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – asymmetric fractional parameter.</p></li>
+<li><p><strong>fm</strong> (<em>float</em>) – maximum frequency of the loss peak.</p></li>
+<li><p><strong>deps</strong> (<em>float</em>) – dielectric strength.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – electrode polarization value.</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – power law exponent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – estimated log derivative of epsilon’ based on the supplied parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.deri_double_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">deri_double_hn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deps1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deps2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.deri_double_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.deri_double_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>derivaitive HN fit function to fit two peaks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – frequency.</p></li>
+<li><p><strong>b1</strong> (<em>float</em>) – symmetric fractional parameter of the 1st peak.</p></li>
+<li><p><strong>g1</strong> (<em>float</em>) – asymmetric fractional parameter of the 1st peak.</p></li>
+<li><p><strong>fm1</strong> (<em>float</em>) – maximum frequency of the 1st peak.</p></li>
+<li><p><strong>deps1</strong> (<em>float</em>) – dielectric strength of the 1st peak.</p></li>
+<li><p><strong>b2</strong> (<em>float</em>) – symmetric fractional parameter of the 2nd peak.</p></li>
+<li><p><strong>g2</strong> (<em>float</em>) – asymmetric fractional parameter of the 2nd peak.</p></li>
+<li><p><strong>fm2</strong> (<em>float</em>) – maximum frequency of the 2nd peak.</p></li>
+<li><p><strong>deps2</strong> (<em>float</em>) – dielectric strength of the 2nd peak.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – estimated log derivative of epsilon’ based on the supplied parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.ep_s">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">ep_s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.ep_s"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.ep_s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to estimate the electrode polarization(EP) contribution from the total fit</p>
+<p>While fitting, the deconvoluted EP is based on this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – frequency.</p></li>
+<li><p><strong>A</strong> (<em>float</em>) – electrode polarization value.</p></li>
+<li><p><strong>l</strong> (<em>float</em>) – power law exponent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – estimated log EP.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="havnegpy-hn-derivative-dump-methods">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">dump</span> <span class="pre">methods</span></code><a class="headerlink" href="#havnegpy-hn-derivative-dump-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.dump_parameters_deri_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">dump_parameters_deri_hn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.dump_parameters_deri_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.dump_parameters_deri_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>dumps the initial fit parameters for derivative hn function as a dictionary
+in a json file to load it during curve fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.dump_parameters_deri_double_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">dump_parameters_deri_double_hn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.dump_parameters_deri_double_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.dump_parameters_deri_double_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>dumps the initial fit parameters for derivative_double hn function as a dictionary
+in a json file to load it during curve fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="havnegpy-hn-derivative-initial-view-methods">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">initial</span> <span class="pre">view</span> <span class="pre">methods</span></code><a class="headerlink" href="#havnegpy-hn-derivative-initial-view-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.initial_view_deri_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">initial_view_deri_hn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.initial_view_deri_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.initial_view_deri_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots the derivative hn function based on the initial parameters given
+via the dump_parameters method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – log frequency.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – log derivative of epsilon’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.initial_view_deri_hn_ep">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">initial_view_deri_hn_ep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.initial_view_deri_hn_ep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.initial_view_deri_hn_ep" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots the derivative hn function with electrode polarization
+based on the initial parameters given via the dump_parameters method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – log frequency.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – log derivative of epsilon’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.initial_view_deri_double_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">initial_view_deri_double_hn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.initial_view_deri_double_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.initial_view_deri_double_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots the derivative double hn function based on the initial parameters given
+via the dump_parameters method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – log frequency.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – log derivative of epsilon’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="havnegpy-hn-derivaitve-methods-for-fitting-and-saving-the-fit-results">
+<h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivaitve</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">fitting</span> <span class="pre">and</span> <span class="pre">saving</span> <span class="pre">the</span> <span class="pre">fit</span> <span class="pre">results</span></code><a class="headerlink" href="#havnegpy-hn-derivaitve-methods-for-fitting-and-saving-the-fit-results" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.create_analysis_file">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">create_analysis_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.create_analysis_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.create_analysis_file" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Creates a file to save the fit results based on the choice of fit function</p>
+<p>Provides option to use an existing file and creates a new file if not found</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.select_range">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">select_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.select_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.select_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the region of interest to fit data using mplcursors
+allows two clicks to select the lower and upper bound of the x-axis
+and returns the selected x and y vaues for fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – log frequency</p></li>
+<li><p><strong>y1</strong> (<em>array</em>) – log dielectric loss</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.fit">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fits the derivaitve of epsilon’ data with choice of fit function
+The fit parameters are declared as global variables to be saved
+via save_fit function</p>
+<p>The initial fit parameters are taken from json file and the final
+fit parameters are dumped in the same json file to be used for next
+iteration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – log frequency.</p></li>
+<li><p><strong>y</strong> (<em>array</em>) – log dielectric loss.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.save_fit_deri_hn">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">save_fit_deri_hn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.save_fit_deri_hn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.save_fit_deri_hn" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the fit parameters of derivative hn function in a file
+the file must be created via create_analysis_file function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – Temperature,or can also be an integer
+that corresponds to a file number during analysis.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.save_fit_deri_hn_ep">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">save_fit_deri_hn_ep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.save_fit_deri_hn_ep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.save_fit_deri_hn_ep" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the fit parameters of derivaitve hn function with electrode polarization
+in  a file, the file must be created via create_analysis_file function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – Temperature,or can also be an integer
+that corresponds to a file number during analysis.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HavNegpy.HN_derivative.save_fit_deri_double_HN">
+<span class="sig-prename descclassname"><span class="pre">HN_derivative.</span></span><span class="sig-name descname"><span class="pre">save_fit_deri_double_HN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_hn_deri.html#HN_derivative.save_fit_deri_double_HN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.HN_derivative.save_fit_deri_double_HN" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the fit parameters of derivaitve double hn function in  a file,
+the file must be created via create_analysis_file function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>T</strong> (<em>float</em>) – Temperature,or can also be an integer
+that corresponds to a file number during analysis.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">HavNegpy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hn.html">HN Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HN derivative Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hn-derivative-class"><code class="docutils literal notranslate"><span class="pre">HN_derivative</span> <span class="pre">class</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-hn-derivative-fit-functions"><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">fit</span> <span class="pre">functions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-hn-derivative-dump-methods"><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">dump</span> <span class="pre">methods</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-hn-derivative-initial-view-methods"><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivative</span> <span class="pre">initial</span> <span class="pre">view</span> <span class="pre">methods</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#havnegpy-hn-derivaitve-methods-for-fitting-and-saving-the-fit-results"><code class="docutils literal notranslate"><span class="pre">HavNegpy.HN_derivaitve</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">fitting</span> <span class="pre">and</span> <span class="pre">saving</span> <span class="pre">the</span> <span class="pre">fit</span> <span class="pre">results</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conductivity.html">Conductivity Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_HN_module.html">Tutorial for HN module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="hn.html" title="previous chapter">HN Module</a></li>
+      <li>Next: <a href="conductivity.html" title="next chapter">Conductivity Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Mohamed Kolmangadi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/deri.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
