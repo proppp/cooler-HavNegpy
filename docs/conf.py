@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'HavNegpy'
-copyright = '2022, Mohamed Kolmangadi'
+copyright = '2022, Mohamed Aejaz Kolmangadi'
 author = 'Mohamed Aejaz Kolmangadi'
 
 # The full version, including alpha/beta/rc tags
