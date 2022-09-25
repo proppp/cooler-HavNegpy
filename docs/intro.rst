@@ -17,7 +17,7 @@ All modules contain same methods which includes:
 Besides, other method include ``initial view of fit parameters``
 
 A clear description is provided in the tutorial.
-Note: Some HTML images aren't rendered in the tutorials page. All tutorial notebooks are available at.
+Note: Some HTML images aren't rendered in the tutorials page. All tutorial notebooks are available at https://github.com/mkolmang/Tutorials_HavNegpy 
 
 
 
