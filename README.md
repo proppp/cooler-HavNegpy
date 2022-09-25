@@ -10,6 +10,5 @@ Mohamed Aejaz Kolmangadi
 
 ## LOOKING FOR HELP?
 
-
-  
+Checkout the Tutorials directory of this repository for usage of this package. 
  

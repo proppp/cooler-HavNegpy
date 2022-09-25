@@ -11,6 +11,9 @@ HN derivative Module
 ``HavNegpy.HN_derivative fit functions``
 ------------------------------------------------------------
 
+
+List of fit functions available in the derivative_HN module.
+
 .. automethod:: HavNegpy.HN_derivative.deri_hn
 
 .. automethod:: HavNegpy.HN_derivative.deri_hn_ep
@@ -23,6 +26,9 @@ HN derivative Module
 ``HavNegpy.HN_derivative dump methods``
 ------------------------------------------------------------
 
+Dumps initial guess parameters using the relevant dump methods.
+
+
 .. automethod:: HavNegpy.HN_derivative.dump_parameters_deri_hn
 
 .. automethod:: HavNegpy.HN_derivative.dump_parameters_deri_double_hn
@@ -31,6 +37,8 @@ HN derivative Module
 
 ``HavNegpy.HN_derivative initial view methods``
 ------------------------------------------------------------
+
+The initial view methods display the initial fit based on the guess parameters supplied.
 
 .. automethod:: HavNegpy.HN_derivative.initial_view_deri_hn
 
@@ -41,6 +49,9 @@ HN derivative Module
 
 ``HavNegpy.HN_derivaitve methods for fitting and saving the fit results``
 ---------------------------------------------------------------------
+
+The fit method performs the final fit and the final parameters can be saved into a file using save fit method.
+
 
 .. automethod:: HavNegpy.HN_derivative.create_analysis_file
 

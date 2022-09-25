@@ -10,6 +10,8 @@ HN Module
 ``HavNegpy.HN fit functions``
 -------------------------------
 
+List of fit functions available in the HN module.
+
 .. automethod:: HavNegpy.HN.hn
 
 .. automethod:: HavNegpy.HN.hn_cond
@@ -28,6 +30,9 @@ HN Module
 ``HavNegpy.HN dump methods``
 -----------------------------------------
 
+Dumps initial guess parameters using the relevant dump methods.
+
+
 .. automethod:: HavNegpy.HN.dump_parameters_hn
 
 .. automethod:: HavNegpy.HN.dump_parameters_double_hn
@@ -37,6 +42,8 @@ HN Module
 
 ``HavNegpy.HN initial view methods``
 ----------------------------------------------
+
+The initial view methods display the initial fit based on the guess parameters supplied.
 
 .. automethod:: HavNegpy.HN.initial_view_hn
 
@@ -51,6 +58,8 @@ HN Module
 
 ``HavNegpy.HN methods for fitting and saving the fit results``
 ------------------------------------------------------------
+
+The fit method performs the final fit and the final parameters can be saved into a file using save fit method.
 
 .. automethod:: HavNegpy.HN.create_analysis_file
 
