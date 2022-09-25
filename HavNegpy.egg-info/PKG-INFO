@@ -2,20 +2,23 @@ Metadata-Version: 2.1
 Name: HavNegpy
 Version: 0.1
 Summary: Python package to analyze dielectric data
-Author: Mohamed Kolmangadi
+Author: Mohamed Aejaz Kolmangadi
 Author-email: mohamed.kolmangadi@gmail.com
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# exampy
+# HavNegpy
 
-HavNegpy is a python package to anaylze dielectric data.
+HavNegpy is a python fit package to anaylze dielectric data. 
+HavNeg is an acronym for Havriliak and Negami function, and the fit module is based on this function.
 
 
 ## AUTHOR
 
-Mohamed Kolmangadi -- 
+Mohamed Aejaz Kolmangadi 
 
 ## LOOKING FOR HELP?
 
-
+Checkout the Tutorials here. `Tutorials<https://github.com/mkolmang/Tutorials_HavNegpy>`_
+ 
+ 

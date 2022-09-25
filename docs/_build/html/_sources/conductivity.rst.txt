@@ -4,13 +4,11 @@ Conductivity Module
 
 ``Conductivity class``
 ------------------------------------------------------------
-
 .. autoclass:: HavNegpy.Conductivity
    
 
 ``HavNegpy.Conductivity fit function``
 ------------------------------------------------------------
-
 .. automethod:: HavNegpy.Conductivity.jonscher_function
 
 
