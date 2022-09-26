@@ -11,10 +11,6 @@ Mohamed Aejaz Kolmangadi
 ## LOOKING FOR HELP?
 
 <<<<<<< HEAD
-Checkout the Tutorials here. `Tutorials<https://github.com/mkolmang/Tutorials_HavNegpy>`_
- 
- 
-=======
-Checkout the Tutorials directory of this repository for usage of this package. (https://github.com/mkolmang/Tutorials_HavNegpy)
+Checkout the Tutorials here (https://github.com/mkolmang/Tutorials_HavNegpy)
  
  
