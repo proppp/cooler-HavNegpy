@@ -10,7 +10,6 @@ Mohamed Aejaz Kolmangadi
 
 ## LOOKING FOR HELP?
 
-<<<<<<< HEAD
 Checkout the Tutorials here (https://github.com/mkolmang/Tutorials_HavNegpy)
  
  
