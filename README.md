@@ -7,8 +7,8 @@ HavNeg is an acronym for Havriliak and Negami function, and the fit module is ba
 # Some fit examples
 
 <img src="readme_figures/Figure_1.png" width="400"> <img src="readme_figures/Figure_2.png" width="400">
-<img src="readme_figures/Figure_2.png" width="400">
 <img src="readme_figures/Figure_3.png" width="400">
+<img src="readme_figures/Figure_4.png" width="400">
 
 
 
