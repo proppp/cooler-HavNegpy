@@ -17,7 +17,7 @@ class HN_derivative:
     """
     A class to analyze the derivaite of real part of complex permittivity with derivative HN function
     
-    Fit functions include single, double, derivative HN with Electrode polarization
+    Fit functions include single, double, and derivative HN with electrode polarization
     
     """
     
@@ -187,6 +187,58 @@ class HN_derivative:
        
         y = np.log10(deri)#+ep)#+condb)
         return y    
+    
+    
+    def deri_hn_ln(self,x,b,g,fm,deps):
+        """
+        derivaitive HN fit function to fit single peak 
+
+        Parameters
+        ----------
+        x : float
+            frequency.
+        b : float
+            symmetric fractional parameter.
+        g : float
+            asymmetric fractional parameter.
+        fm : float
+            maximum frequency of the peak.
+        deps : float
+            dielectric strength.
+
+
+        Returns
+        -------
+        y : array
+            estimated log derivative of epsilon' based on the supplied parameters.
+
+        """
+        f = np.exp(x)
+            
+        ff = f/fm
+        ffb = ff**(b)
+        n = (np.pi)/2
+    
+        xc = np.cos(b*n)
+        xs = np.sin(b*n)
+        r = 1 + 2*ffb*xc + ffb**(2)
+        #r_w = (1/r)**(0.5*g)
+    
+        p2 = 1/(ffb)
+        phi = np.arctan((xs/(p2+xc)))
+        #e_w = deps*r_w*(np.sin(g*phi))
+        
+        
+        de_1 = b*g*deps*ffb*np.cos(b*n-(1+g)*phi)
+        de_2 = r**((1+g)/2)
+        
+        deri = de_1/de_2
+        deri = deri/np.log(10)
+        
+        
+       
+        y = np.log(deri)#+ep)#+condb)
+        return y   
 
     
     def deri_hn_ep(self,x,b,g,fm,deps,A,l):
@@ -364,7 +416,7 @@ class HN_derivative:
         d = float(input("enter the deps:"))
         ep = float(input("enter the E.P value:"))
         s = float(input("enter the s:"))
-        f = 10**lf
+        f = 10**(lf)
         
         
         par = {"beta": b, "gamma": g,  "freq": f,"deps":d, "ep":ep, "s":s}
@@ -400,8 +452,8 @@ class HN_derivative:
         d2 = float(input("enter the deps2:"))
         ep = float(input("enter the E.P value:"))
         s = float(input("enter the s:"))
-        f1 = 10**lf1
-        f2 = 10**lf2
+        f1 = 10**(lf1)
+        f2 = 10**(lf2)
         
         
         par = {"beta1":b1,"gamma1":g1,"freq1":f1,"deps1":d1,"beta2":b2,"gamma2":g2,"freq2":f2,"deps2":d2, "ep":ep, "s":s}
@@ -452,6 +504,9 @@ class HN_derivative:
 
             print("loaded parameters \n" ,loaded_par)
             
+            hn_par_index = ['beta','gamma','freq','deps']
+            init_fit_par = {key:value for key,value in loaded_par.items() if key in hn_par_index}
+            
             hn_sub_par = loaded_par['beta'],loaded_par['gamma'],loaded_par['freq'],loaded_par['deps']
     
             hn_sub = self.deri_hn(x,*hn_sub_par)
@@ -461,7 +516,7 @@ class HN_derivative:
             plt.plot(x,hn_sub,'b',label='initial guess')
             plt.legend()
        
-        
+        return init_fit_par
     def initial_view_deri_hn_ep(self,x,y):
         """
         plots the derivative hn function with electrode polarization
@@ -491,7 +546,7 @@ class HN_derivative:
            with open('HN_deri.json',"r") as openfile:
             loaded_par = json.load(openfile)
         
-
+            init_fit_par = loaded_par
             print("loaded parameters \n" ,loaded_par)
             
             hn_sub_par = loaded_par['beta'],loaded_par['gamma'],loaded_par['freq'],loaded_par['deps']
@@ -504,7 +559,8 @@ class HN_derivative:
             plt.plot(x,hn_sub,'b',label='initial guess - peak')
             plt.plot(x,ep_sub,'r',label='initial guess - electrode polarization')
             plt.legend()
-              
+        return init_fit_par
+      
     def initial_view_deri_double_hn(self,x,y):
         """
         plots the derivative double hn function based on the initial parameters given 
@@ -537,6 +593,10 @@ class HN_derivative:
 
             print("loaded parameters \n" ,loaded_par)
             
+            double_hn_par_index = ['beta1','gamma1','freq1','deps1','beta2','gamma2','freq2','deps2']
+            init_fit_par = {key:value for key,value in loaded_par.items() if key in double_hn_par_index}
+
+            
             hn_sub_par1 = loaded_par['beta1'],loaded_par['gamma1'],loaded_par['freq1'],loaded_par['deps1']
             hn_sub_par2 = loaded_par['beta2'],loaded_par['gamma2'],loaded_par['freq2'],loaded_par['deps2']
            
@@ -550,7 +610,7 @@ class HN_derivative:
             plt.plot(x,hn_sub2,'g',label='initial guess - peak2')
             plt.legend()
 
-
+        return init_fit_par
 
 
     def sel_function(self):
@@ -587,7 +647,8 @@ class HN_derivative:
 
         Returns
         -------
-        None.
+        fit_par : dictionary
+            dictionary containing the fit parameters.
 
 
         """
@@ -740,8 +801,7 @@ class HN_derivative:
                     loaded_par = json.load(openfile)
                 print("fit parameters dumped for next iteration",loaded_par)
              
-        
-        
+        return fit_par
         
         
         
@@ -765,6 +825,8 @@ class HN_derivative:
 
         """
         res_file = open(ana_file,'a')
+        global deps
+        deps = deps/2.303
         res_file.write( f'{T}' + '\t' + f'{b:.3f}' + '\t' + f'{g:.3f}' +  '\t' + f'{deps:.3f}' +'\t'  + f'{l_f:.3f}' + '\t' +f'{ep:.3f}'+'\t' + f'{s:.3f}' +"\n")
         return()           
     
@@ -785,6 +847,8 @@ class HN_derivative:
 
         """
         res_file = open(ana_file,'a')
+        global deps
+        deps = deps/2.303
         res_file.write( f'{T}' + '\t' + f'{b:.3f}' + '\t' + f'{g:.3f}' +  '\t' + f'{deps:.3f}' +'\t'  + f'{l_f:.3f}' + '\t' +f'{ep:.3f}'+'\t' + f'{s:.3f}' +"\n")
         return()           
            
@@ -805,6 +869,9 @@ class HN_derivative:
 
         """
         res_file = open(ana_file,'a')
+        global deps1,deps2
+        deps1 = deps1/2.303
+        deps2 = deps2/2.303
         res_file.write( f'{T}' + '\t' + f'{b1:.3f}' + '\t' + f'{g1:.3f}' +  '\t' + f'{deps1:.3f}' +'\t'  + f'{l_f1:.3f}' + '\t' +f'{b2:.3f}' + '\t' + f'{g2:.3f}' +  '\t' + f'{deps2:.3f}' +'\t'  + f'{l_f2:.3f}'+ '\t' +f'{ep:.3f}'+'\t' + f'{s:.3f}' +"\n")
         return()            
    

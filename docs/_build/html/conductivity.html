@@ -40,7 +40,7 @@
 <h2><code class="docutils literal notranslate"><span class="pre">Conductivity</span> <span class="pre">class</span></code><a class="headerlink" href="#conductivity-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">HavNegpy.</span></span><span class="sig-name descname"><span class="pre">Conductivity</span></span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">HavNegpy.</span></span><span class="sig-name descname"><span class="pre">Conductivity</span></span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class to analyze real part of complex conductivity</p>
 </dd></dl>
 
@@ -49,7 +49,7 @@
 <h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">fit</span> <span class="pre">function</span></code><a class="headerlink" href="#havnegpy-conductivity-fit-function" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.jonscher_function">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">jonscher_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.jonscher_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.jonscher_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">jonscher_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.jonscher_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.jonscher_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Jonscher power law function to fit the conductivity data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -74,7 +74,7 @@
 <h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">dump</span> <span class="pre">methods</span></code><a class="headerlink" href="#havnegpy-conductivity-dump-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.dump_parameters">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">dump_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.dump_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.dump_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">dump_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.dump_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.dump_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>dumps the initial fit parameters for fit function as a dictionary in a json file
 to load it during curve fitting</p>
 <dl class="field-list simple">
@@ -92,7 +92,7 @@ to load it during curve fitting</p>
 <h2><code class="docutils literal notranslate"><span class="pre">HavNegpy.Conductivity</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">fitting</span> <span class="pre">and</span> <span class="pre">saving</span> <span class="pre">the</span> <span class="pre">fit</span> <span class="pre">results</span></code><a class="headerlink" href="#havnegpy-conductivity-methods-for-fitting-and-saving-the-fit-results" title="Permalink to this headline">¶</a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.create_analysis_file">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">create_analysis_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.create_analysis_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.create_analysis_file" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">create_analysis_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.create_analysis_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.create_analysis_file" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Creates a file to save the fit results based on the choice of fit function</p>
 <p>Provides option to use an existing file and creates a new file if not found</p>
@@ -109,7 +109,7 @@ to load it during curve fitting</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.select_range">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">select_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.select_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.select_range" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">select_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.select_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.select_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the region of interest to fit data using mplcursors
 allows two clicks to select the lower and upper bound of the x-axis
 and returns the selected x and y vaues for fitting</p>
@@ -126,7 +126,7 @@ and returns the selected x and y vaues for fitting</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.fit">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits the conductivity data with choice of fit function
 The fit parameters are declared as global variables to be saved
 via save_fit function</p>
@@ -141,17 +141,17 @@ iteration.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p><strong>fit_par</strong> – dictionary containing the fit parameters.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>None.</p>
+<dd class="field-odd"><p>dictionary</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HavNegpy.Conductivity.save_fit">
-<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">save_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/_conductivity.html#Conductivity.save_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.save_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Conductivity.</span></span><span class="sig-name descname"><span class="pre">save_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/HavNegpy/conductivity.html#Conductivity.save_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#HavNegpy.Conductivity.save_fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>saves the fit parameters of fit function in  a file,
 the file must be created via create_analysis_file function</p>
 <dl class="field-list simple">

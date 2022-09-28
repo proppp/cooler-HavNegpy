@@ -611,6 +611,8 @@ class HN():
 
             print("loaded parameters \n", loaded_par)
 
+            
+            init_fit_par = loaded_par   
             hn_sub_par = loaded_par['beta'], loaded_par['gamma'], loaded_par[
                 'freq'], loaded_par['deps'], loaded_par['cond'], loaded_par['n']
             hn_sub = self.hn_flank(x, *hn_sub_par)
@@ -618,6 +620,8 @@ class HN():
             plt.scatter(x, y,label='data')
             plt.plot(x, hn_sub, 'b',label='initial guess')
             plt.legend()
+            
+        return init_fit_par   
 
     def initial_view_hn(self, x, y):
         """
@@ -650,6 +654,9 @@ class HN():
             loaded_par = json.load(openfile)
 
             print("loaded parameters \n", loaded_par)
+            
+            hn_par_index = ['beta','gamma','freq','deps']
+            init_fit_par = {key:value for key,value in loaded_par.items() if key in hn_par_index}
 
             hn_sub_par = loaded_par['beta'], loaded_par['gamma'], loaded_par['freq'], loaded_par['deps']
 
@@ -659,6 +666,7 @@ class HN():
             plt.scatter(x, y,label='data')
             plt.plot(x, hn_sub, 'b',label='initial guess')
             plt.legend()
+        return init_fit_par    
 
     def initial_view_hn_cond(self, x, y):
         """
@@ -690,7 +698,8 @@ class HN():
 
            with open('HN.json', "r") as openfile:
             loaded_par = json.load(openfile)
-
+            init_fit_par = loaded_par 
+            
             print("loaded parameters \n", loaded_par)
 
             hn_sub_par = loaded_par['beta'], loaded_par['gamma'], loaded_par['freq'], loaded_par['deps']
@@ -703,7 +712,8 @@ class HN():
             plt.plot(x, hn_sub, 'b',label='loss peak')
             plt.plot(x, cond_sub, 'r',label='conductivity')
             plt.legend()
-
+        return init_fit_par
+    
     def initial_view_double_hn(self, x, y):
         """
         plots the double hn function based on the initial parameters given 
@@ -735,6 +745,9 @@ class HN():
             loaded_par = json.load(openfile)
 
             print("loaded parameters \n", loaded_par)
+            
+            double_hn_par_index = ['beta1','gamma1','freq1','deps1','beta2','gamma2','freq2','deps2']
+            init_fit_par = {key:value for key,value in loaded_par.items() if key in double_hn_par_index}
 
             hn_sub_par1 = loaded_par['beta1'], loaded_par['gamma1'], loaded_par['freq1'], loaded_par['deps1']
             hn_sub_par2 = loaded_par['beta2'], loaded_par['gamma2'], loaded_par['freq2'], loaded_par['deps2']
@@ -747,7 +760,7 @@ class HN():
             plt.plot(x, hn_sub1, 'b',label='initial guess peak1')
             plt.plot(x, hn_sub2, 'g',label='initial guess peak2')
             plt.legend()
-
+        return init_fit_par
     def initial_view_double_hn_cond(self, x, y):
         """
         plots the double hn function with conductivity based on the initial parameters given 
@@ -777,7 +790,8 @@ class HN():
 
            with open('double_HN.json', "r") as openfile:
             loaded_par = json.load(openfile)
-
+            
+            init_fit_par = loaded_par 
             print("loaded parameters \n", loaded_par)
 
             hn_sub_par1 = loaded_par['beta1'], loaded_par['gamma1'], loaded_par['freq1'], loaded_par['deps1']
@@ -793,29 +807,32 @@ class HN():
             plt.plot(x, hn_sub2, 'g',label='initial guess peak2')
             plt.plot(x, cond_sub, 'r',label='conductivity')
             plt.legend()
+        return init_fit_par     
 
     def fit(self, x, y):
-        """
-        Fits the dielectric loss data with choice of fit function
-        The fit parameters are declared as global variables to be saved
-        via save_fit function
-        
-        The initial fit parameters are taken from json file and the final
-        fit parameters are dumped in the same json file to be used for next
-        iteration.        
+        """    
+         Fits the dielectric loss data with choice of fit function
+         The fit parameters are declared as global variables to be saved
+         via save_fit function
+         
+         The initial fit parameters are taken from json file and the final
+         fit parameters are dumped in the same json file to be used for next
+         iteration.        
 
-        Parameters
-        ----------
-        x : array
-            log frequency.
-        y : array
-            log dielectric loss.
+         Parameters
+         ----------
+         x : array
+             log frequency.
+         y : array
+             log dielectric loss.
 
         Returns
         -------
-        None.
+        fit_par : dictionary
+            dictionary containing the fit parameters.
 
         """
+
 
         func_number = self.sel_function()
         x1 = np.array(x)
@@ -826,7 +843,7 @@ class HN():
         plt.figure()
 
         global popt2
-        global b, g, fm, deps, cond, s, l_f, b1, g1,fm1,deps1,b2,g2,fm2,deps2,l_f1,l_f2,flank
+        global b, g, fm, deps, cond, s, l_f, b1, g1,fm1,deps1,b2,g2,fm2,deps2,l_f1,l_f2,flank,fit_par
 
         if func_number == 1:
 
@@ -1089,6 +1106,9 @@ class HN():
                 with open('double_HN.json', "r") as openfile:
                     loaded_par = json.load(openfile)
                 print("fit parameters dumped for next iteration", loaded_par)
+                
+                
+        return fit_par     
 
     def save_fit_hn(self, T):
         """

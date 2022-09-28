@@ -153,11 +153,11 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f3cb3b6d",
+   "id": "5e27d2c5-e5e3-4a57-bfd3-702e6f488c3e",
    "metadata": {},
    "source": [
-    "**Select the region of interest (ROI) to fit the data using the select range method**. \n",
-    ">The data in ROI is shown as image in the next cell"
+    "**Select the region of interest (ROI) to fit the data using the select range method**. <br> \n",
+    "The data in ROI is shown as image in the next cell"
    ]
   },
   {

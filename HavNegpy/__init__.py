@@ -1,5 +1,5 @@
 """HavNegpy: python package to analyze dielectric data"""
 __version__= "0.1"
-from ._conductivity import *
-from ._hn import *
-from ._hn_deri import *
+from .conductivity import Conductivity
+from .hn import HN
+from .hn_deri import HN_derivative

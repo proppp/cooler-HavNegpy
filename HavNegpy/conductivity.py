@@ -169,6 +169,40 @@ class Conductivity:
         y = DC + (np.log10(1+(o/fc)**(n)))
         return y
     
+    
+    
+    
+    def rbm_function(self,x,fc,DC):
+        """
+        Jonscher power law function to fit the conductivity data
+
+        Parameters
+        ----------
+        x : float
+            log frequency
+        fc : float
+            onset frequency
+        DC : float
+            DC conductivity value
+        n : float
+            power law exponent
+
+        Returns
+        -------
+        y : array
+            estimated log conductivity based on supplied parameters.
+
+        """
+        o = 10**(x)
+        b = o/fc
+        c = 1 + b**2
+        d = np.log(np.sqrt(c))
+        z1 = b*np.arctan(b)
+        z2 = (d**2 + np.arctan(b)**2)
+        z = z1/z2
+        y = DC + np.log10(z)
+        return y
+    
 
     def dump_parameters(self):
         """
@@ -199,7 +233,19 @@ class Conductivity:
         print("dumped_parameters",loaded_par)
         return ()
         
+    def sel_function(self):
+        """
+        A function to select the type of fit function during curve fitting
 
+        Returns
+        -------
+        func_decision : int
+            choice of the fit function.
+
+        """
+        func_decision = int(input(
+            "Choose the fit function\n 1 -- Jonscher, 2 -- RBM:"))
+        return func_decision
     
     def fit(self,x,y):
         """
@@ -220,63 +266,106 @@ class Conductivity:
 
         Returns
         -------
-        None.
+        fit_par : dictionary
+            dictionary containing the fit parameters.
 
         """
 
-
+        func_number = self.sel_function()
         x1 = np.array(x)
         y1= np.array(y)
 
         global popt1
         
-        global  fit_fc,fit_DC,fit_n
+        global  fit_fc,fit_DC,fit_n,fit_par
         
         plt.figure()
         
-        try:
-            
-          open('cond.json')
-
-        except  FileNotFoundError as e:  
-            print(f'{e}' + '\n', "Please dump initial fit parameters using dump.parameters method")
-        else:
-            with open('cond.json',"r") as openfile:
-               loaded_par = json.load(openfile)
-            
-           
-               
-    
-            p0 = [loaded_par['fc'], loaded_par['DC'],loaded_par['n']]
+        if func_number == 1:
         
-            cond = self.jonscher_function
-            popt1, pcov1 = curve_fit(cond, x1, y1, p0, bounds = ((1e-6,-15,0), (1e8,6,1)))
-            yfit= cond(x1,*popt1)
-            
-            plt.scatter(x1,y1,marker='s',color='b',facecolors='none',label='data',s=100,linewidth=2)
-            plt.plot(x1,yfit,'m--', label='fit',linewidth=2)
-            plt.xlabel('log ( f [Hz])')
-            plt.ylabel('log ( $\sigma´$)')
-            plt.legend()
-            plt.show()
-            fit_fc,fit_DC,fit_n = popt1[:]
-            
-            fit_par = {"fc": fit_fc, "DC": fit_DC,  "n": fit_n}
-    
-            
-            print("fit parameters:\n", popt1)
-            print(f' DC cond = {fit_DC:.03f}')
-            
-            with open('cond.json',"w") as outfile:
-                json.dump(fit_par,outfile)
+            try:
                 
-            with open('cond.json',"r") as openfile:
-                loaded_par = json.load(openfile)
+              open('cond.json')
     
-            print("fit parameters dumped for next iteration",loaded_par)
+            except  FileNotFoundError as e:  
+                print(f'{e}' + '\n', "Please dump initial fit parameters using dump.parameters method")
+            else:
+                with open('cond.json',"r") as openfile:
+                   loaded_par = json.load(openfile)
+                
+               
+                   
+        
+                p0 = [loaded_par['fc'], loaded_par['DC'],loaded_par['n']]
             
+                cond = self.jonscher_function
+                popt1, pcov1 = curve_fit(cond, x1, y1, p0, bounds = ((1e-6,-15,0), (1e8,6,1)))
+                yfit= cond(x1,*popt1)
+                
+                plt.scatter(x1,y1,marker='s',color='b',facecolors='none',label='data',s=100,linewidth=2)
+                plt.plot(x1,yfit,'m--', label='fit',linewidth=2)
+                plt.xlabel('log ( f [Hz])')
+                plt.ylabel('log ( $\sigma´$)')
+                plt.legend()
+                plt.show()
+                fit_fc,fit_DC,fit_n = popt1[:]
+                
+                fit_par = {"fc": fit_fc, "DC": fit_DC,  "n": fit_n}
+        
+                
+                print("fit parameters:\n", popt1)
+                print(f' DC cond = {fit_DC:.03f}')
+                
+                with open('cond.json',"w") as outfile:
+                    json.dump(fit_par,outfile)
+                    
+                with open('cond.json',"r") as openfile:
+                    loaded_par = json.load(openfile)
+        
+                print("fit parameters dumped for next iteration",loaded_par)
+                
+        elif func_number ==2:
+              try:
+                  
+                open('cond.json')
+      
+              except  FileNotFoundError as e:  
+                  print(f'{e}' + '\n', "Please dump initial fit parameters using dump.parameters method")
+              else:
+                  with open('cond.json',"r") as openfile:
+                     loaded_par = json.load(openfile)
+                  
+                 
+                     
+          
+                  p0 = [loaded_par['fc'], loaded_par['DC']]
+                  cond = self.rbm_function
+                  popt1, pcov1 = curve_fit(cond, x1, y1, p0, bounds = ((1e-6,-15), (1e8,6)))
+                  yfit= cond(x1,*popt1)
+                  
+                  plt.scatter(x1,y1,marker='s',color='b',facecolors='none',label='data',s=100,linewidth=2)
+                  plt.plot(x1,yfit,'m--', label='fit',linewidth=2)
+                  plt.xlabel('log ( f [Hz])')
+                  plt.ylabel('log ( $\sigma´$)')
+                  plt.legend()
+                  plt.show()
+                  fit_fc,fit_DC = popt1[:]
+                  n = 0
+                  fit_par = {"fc": fit_fc, "DC": fit_DC,"n":n}
+          
+                  
+                  print("fit parameters:\n", popt1)
+                  print(f' DC cond = {fit_DC:.03f}')
+                  
+                  with open('cond.json',"w") as outfile:
+                      json.dump(fit_par,outfile)
+                      
+                  with open('cond.json',"r") as openfile:
+                      loaded_par = json.load(openfile)
+          
+                  print("fit parameters dumped for next iteration",loaded_par)
 
-        return()
+        return fit_par
 
     def save_fit(self,T):
         """
@@ -299,10 +388,4 @@ class Conductivity:
         res_file = open(ana_file,'a')
         res_file.write( f'{T}' + '\t' + f'{fit_fc:.03f}' + '\t' + f'{fit_DC:.03f}' + '\t' + f'{fit_n:.03f}'  +"\n")
         return ()  
-
-
-
-
-
-
 
