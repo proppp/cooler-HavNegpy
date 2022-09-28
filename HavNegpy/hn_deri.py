@@ -85,8 +85,8 @@ class HN_derivative:
        plt.figure(1)
        plt.style.use("seaborn-whitegrid")
 
-       plt.scatter(x,y,marker='s',color='b',facecolors='none', s=100,linewidth=2)
-       plt.ylabel('log ( d$\epsilon´$/ dlog f )')
+       plt.scatter(x,y,marker='s',color='r',facecolors='none', s=100,linewidth=2)
+       plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
        plt.xlabel('log f')
        #plt.legend()
        plt.style.use("seaborn-whitegrid")
@@ -512,8 +512,10 @@ class HN_derivative:
             hn_sub = self.deri_hn(x,*hn_sub_par)
           
             plt.figure()
-            plt.scatter(x,y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x,hn_sub,'b',label='initial guess')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
             plt.legend()
        
         return init_fit_par
@@ -555,9 +557,11 @@ class HN_derivative:
             ep_sub = self.ep_s(x,*ep_sub_par)
           
             plt.figure()
-            plt.scatter(x,y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x,hn_sub,'b',label='initial guess - peak')
             plt.plot(x,ep_sub,'r',label='initial guess - electrode polarization')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
             plt.legend()
         return init_fit_par
       
@@ -605,9 +609,11 @@ class HN_derivative:
             
           
             plt.figure()
-            plt.scatter(x,y)
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x,hn_sub1,'b',label='initial guess - peak1')
             plt.plot(x,hn_sub2,'g',label='initial guess - peak2')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
             plt.legend()
 
         return init_fit_par
@@ -680,10 +686,10 @@ class HN_derivative:
                popt1, pcov2 = curve_fit(self.deri_hn, x1, y1, hn_p0,bounds =((0,0,1e-7,0),(1,1,1e7,np.inf)),absolute_sigma=True)
                yfit2 = self.deri_hn(x1,*popt1)
                
-               plt.scatter(x1,y1,marker='o',color='r',facecolors='none',label='data',s=100,linewidth=2)
-               plt.plot(x1,yfit2,'m--',label='weighted fit', linewidth=2)
+               plt.scatter(x1,y1,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
+               plt.plot(x1,yfit2,'m--',label='derivative HN fit', linewidth=2)
                plt.xlabel('log ( f [Hz])')
-               plt.ylabel('log ( d$\epsilon´$/ dlog f )')
+               plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
                plt.legend()
              
                b,g,fm,deps = popt1[0:4]
@@ -721,19 +727,19 @@ class HN_derivative:
                popt2, pcov2 = curve_fit(self.deri_hn_ep, x1, y1, p0, bounds =((0,0,1e-7,0,0,0),(1,1,1e7,np.inf,np.inf,1)),absolute_sigma=True)
                yfit3 = self.deri_hn_ep(x1,*popt2)
                
-               plt.scatter(x1,y1,marker='o',color='r',facecolors='none',label='data',s=100,linewidth=2)
-               plt.plot(x1,yfit3,'m--',label='weighted fit', linewidth=2)
+               plt.scatter(x1,y1,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
+               plt.plot(x1,yfit3,'m--',label='derivative HN with EP fit', linewidth=2)
                plt.xlabel('log ( f [Hz])')
-               plt.ylabel('log ( d$\epsilon´$/ dlog f )')
-               plt.legend()
+               plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
+               
                
                hn_sub_par = popt2[0],popt2[1],popt2[2],popt2[3]
                ep_sub_par = popt2[4], popt2[5] 
                hn_sub = self.deri_hn(x1,*hn_sub_par)
                ep_sub = self.ep_s(x1,*ep_sub_par)
-               plt.plot(x1,hn_sub,'b')
-               plt.plot(x1,ep_sub,'g')
-              
+               plt.plot(x1,hn_sub,'b',label='loss peak')
+               plt.plot(x1,ep_sub,'g',label='Electrode Polarization')
+               plt.legend()
                
                print(*popt2)
                b,g,fm,deps,ep,s = popt2[:]
@@ -768,18 +774,19 @@ class HN_derivative:
                 print(p0)
                 popt2, pcov2 = curve_fit(self.deri_double_hn, x1, y1, p0, bounds =((0,0,1e-7,0,0,0,1e-7,0),(1,1,1e7,np.inf,1,1,1e7,np.inf)),absolute_sigma=True)
                 yfit4 = self.deri_double_hn(x1,*popt2)
-                plt.scatter(x1,y1,marker='o',color='r',facecolors='none',label='data',s=100,linewidth=2)
-                plt.plot(x1,yfit4,'m--',label='weighted fit', linewidth=2)
+                plt.scatter(x1,y1,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
+                plt.plot(x1,yfit4,'m--',label='derivative HN fit', linewidth=2)
                 plt.xlabel('log ( f [Hz])')
-                plt.ylabel('log ( d$\epsilon´$/ dlog f )')
-                plt.legend()
+                plt.ylabel('log ( -d$\epsilon´$/ dlog f )')
+                
                 
                 hn_sub_par1 = popt2[0], popt2[1],popt2[2],popt2[3]
                 hn_sub_par2 = popt2[4], popt2[5],popt2[6],popt2[7]
                 hn_sub1 = self.deri_hn(x1,*hn_sub_par1)
                 hn_sub2 = self.deri_hn(x1,*hn_sub_par2)
-                plt.plot(x1,hn_sub1,'b')
-                plt.plot(x1,hn_sub2,'g')
+                plt.plot(x1,hn_sub1,'b',label='loss peak1')
+                plt.plot(x1,hn_sub2,'g',label='loss peak2')
+                plt.legend()
                 
                 b1,g1,fm1,deps1,b2,g2,fm2,deps2 = popt2[:]
                 ep, s = 0, 1

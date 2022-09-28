@@ -98,7 +98,7 @@ class HN():
         plt.figure(1)
         plt.style.use("seaborn-whitegrid")
 
-        plt.scatter(x, y, marker='s', color='b',
+        plt.scatter(x, y, marker='s', color='r',
                     facecolors='none', s=100, linewidth=2)
         plt.ylabel('log $\epsilon$"')
         plt.xlabel('log f')
@@ -617,8 +617,10 @@ class HN():
                 'freq'], loaded_par['deps'], loaded_par['cond'], loaded_par['n']
             hn_sub = self.hn_flank(x, *hn_sub_par)
             plt.figure()
-            plt.scatter(x, y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x, hn_sub, 'b',label='initial guess')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log $\epsilon$"')
             plt.legend()
             
         return init_fit_par   
@@ -663,8 +665,10 @@ class HN():
             hn_sub = self.hn(x, *hn_sub_par)
 
             plt.figure()
-            plt.scatter(x, y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x, hn_sub, 'b',label='initial guess')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log $\epsilon$"')
             plt.legend()
         return init_fit_par    
 
@@ -708,9 +712,11 @@ class HN():
             cond_sub = self.cond_s(x, *cond_sub_par)
 
             plt.figure()
-            plt.scatter(x, y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x, hn_sub, 'b',label='loss peak')
             plt.plot(x, cond_sub, 'r',label='conductivity')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log $\epsilon$"')
             plt.legend()
         return init_fit_par
     
@@ -756,11 +762,14 @@ class HN():
             hn_sub2 = self.hn(x, *hn_sub_par2)
 
             plt.figure()
-            plt.scatter(x, y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x, hn_sub1, 'b',label='initial guess peak1')
             plt.plot(x, hn_sub2, 'g',label='initial guess peak2')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log $\epsilon$"')
             plt.legend()
         return init_fit_par
+    
     def initial_view_double_hn_cond(self, x, y):
         """
         plots the double hn function with conductivity based on the initial parameters given 
@@ -802,10 +811,12 @@ class HN():
             cond_sub = self.cond_s(x, *cond_sub_par)
 
             plt.figure()
-            plt.scatter(x, y,label='data')
+            plt.scatter(x,y,marker='s',color='r',facecolors='none',label='data',s=100,linewidth=2)
             plt.plot(x, hn_sub1, 'b',label='initial guess peak1')
             plt.plot(x, hn_sub2, 'g',label='initial guess peak2')
             plt.plot(x, cond_sub, 'r',label='conductivity')
+            plt.xlabel('log ( f [Hz])')
+            plt.ylabel('log $\epsilon$"')
             plt.legend()
         return init_fit_par     
 
@@ -863,9 +874,9 @@ class HN():
                popt1, pcov2 = curve_fit(self.hn, x1, y1, hn_p0, bounds =((0, 0, 1e-7, 0), (1, 1, 1e7, np.inf)),absolute_sigma=True)
                yfit2 = self.hn(x1, *popt1)
 
-               plt.scatter(x1, y1, marker='o', color='r',
+               plt.scatter(x1, y1, marker='s', color='r',
                            facecolors='none', label='data', s=100, linewidth=2)
-               plt.plot(x1, yfit2, 'm--', label='weighted fit', linewidth=2)
+               plt.plot(x1, yfit2, 'm--', label='HN function fit', linewidth=2)
                plt.xlabel('log ( f [Hz])')
                plt.ylabel('log $\epsilon$"')
                plt.legend()
@@ -908,9 +919,9 @@ class HN():
                popt2, pcov2 = curve_fit(self.hn_cond, x1, y1, p0, bounds =((0, 0, 1e-7, 0, 0, 0), (1, 1, 1e7,np.inf,np.inf,1)),absolute_sigma=True)
                yfit3 = self.hn_cond(x1, *popt2)
 
-               plt.scatter(x1, y1, marker='o', color='r',
+               plt.scatter(x1, y1, marker='s', color='r',
                            facecolors='none', label='data', s=100, linewidth=2)
-               plt.plot(x1, yfit3, 'm--', label='weighted fit', linewidth=2)
+               plt.plot(x1, yfit3, 'm--', label='HN with cond fit', linewidth=2)
                plt.xlabel('log ( f [Hz])')
                plt.ylabel('log $\epsilon$"')
                
@@ -959,9 +970,9 @@ class HN():
                popt2, pcov2 = curve_fit(self.hn_flank, x1, y1, p0, bounds =((0, 0, 0, 0, 0, 0), (1, 1, 1e7,np.inf,np.inf,1)), absolute_sigma=True)
                yfit3 = self.hn_flank(x1, *popt2)
 
-               plt.scatter(x1, y1, marker='o', color='r',
+               plt.scatter(x1, y1, marker='s', color='r',
                            facecolors='none', label='data', s=100, linewidth=2)
-               plt.plot(x1, yfit3, 'm--', label='weighted fit', linewidth=2)
+               plt.plot(x1, yfit3, 'm--', label='HN with flank fit', linewidth=2)
                plt.xlabel('log ( f [Hz])')
                plt.ylabel('log $\epsilon$"')
                
@@ -1017,9 +1028,9 @@ class HN():
                 print(p0)
                 popt2, pcov2 = curve_fit(self.double_hn, x1, y1, p0, bounds =((0, 0, 1e-7, 0, 0, 0, 1e-7, 0), (1,1,1e7,np.inf,1,1,1e7,np.inf)),absolute_sigma=True)
                 yfit4 = self.double_hn(x1, *popt2)
-                plt.scatter(x1, y1, marker='o', color='r',
+                plt.scatter(x1, y1, marker='s', color='r',
                             facecolors='none', label='data', s=100, linewidth=2)
-                plt.plot(x1, yfit4, 'm--', label='weighted fit', linewidth=2)
+                plt.plot(x1, yfit4, 'm--', label='double HN fit', linewidth=2)
                 plt.xlabel('log ( f [Hz])')
                 plt.ylabel('log $\epsilon$"')
                 
@@ -1069,9 +1080,9 @@ class HN():
                 print(p0)
                 popt2, pcov2 = curve_fit(self.double_hn_cond, x1, y1, p0, bounds =((0, 0, 1e-7, 0, 0, 0, 1e-7, 0, 0,0),(1,1,1e7,np.inf,1,1,1e7,np.inf,np.inf,1)),absolute_sigma=True)
                 yfit4 = self.double_hn_cond(x1, *popt2)
-                plt.scatter(x1, y1, marker='o', color='r',
+                plt.scatter(x1, y1, marker='s', color='r',
                             facecolors='none', label='data', s=100, linewidth=2)
-                plt.plot(x1, yfit4, 'm--', label='weighted fit', linewidth=2)
+                plt.plot(x1, yfit4, 'm--', label='double HN fit', linewidth=2)
                 plt.xlabel('log ( f [Hz])')
                 plt.ylabel('log $\epsilon$"')
                 

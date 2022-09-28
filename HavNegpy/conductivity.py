@@ -303,7 +303,7 @@ class Conductivity:
                 yfit= cond(x1,*popt1)
                 
                 plt.scatter(x1,y1,marker='s',color='b',facecolors='none',label='data',s=100,linewidth=2)
-                plt.plot(x1,yfit,'m--', label='fit',linewidth=2)
+                plt.plot(x1,yfit,'r--', label='Jonscher fit',linewidth=2)
                 plt.xlabel('log ( f [Hz])')
                 plt.ylabel('log ( $\sigma´$)')
                 plt.legend()
@@ -344,7 +344,7 @@ class Conductivity:
                   yfit= cond(x1,*popt1)
                   
                   plt.scatter(x1,y1,marker='s',color='b',facecolors='none',label='data',s=100,linewidth=2)
-                  plt.plot(x1,yfit,'m--', label='fit',linewidth=2)
+                  plt.plot(x1,yfit,'r--', label='RBM fit',linewidth=2)
                   plt.xlabel('log ( f [Hz])')
                   plt.ylabel('log ( $\sigma´$)')
                   plt.legend()
