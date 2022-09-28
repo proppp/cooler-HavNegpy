@@ -1082,7 +1082,7 @@ class HN():
                 yfit4 = self.double_hn_cond(x1, *popt2)
                 plt.scatter(x1, y1, marker='s', color='r',
                             facecolors='none', label='data', s=100, linewidth=2)
-                plt.plot(x1, yfit4, 'm--', label='double HN fit', linewidth=2)
+                plt.plot(x1, yfit4, 'm--', label='double HN fit with cond', linewidth=2)
                 plt.xlabel('log ( f [Hz])')
                 plt.ylabel('log $\epsilon$"')
                 
@@ -1093,8 +1093,8 @@ class HN():
                 hn_sub1 = self.hn(x1, *hn_sub_par1)
                 hn_sub2 = self.hn(x1, *hn_sub_par2)
                 cond_sub = self.cond_s(x1, *cond_sub_par)
-                plt.plot(x, hn_sub1, 'b',label='initial guess peak1')
-                plt.plot(x, hn_sub2, 'g',label='initial guess peak2')
+                plt.plot(x, hn_sub1, 'b',label='peak1')
+                plt.plot(x, hn_sub2, 'g',label='peak2')
                 plt.plot(x, cond_sub, 'r',label='conductivity')
                 plt.legend()
 

@@ -737,7 +737,7 @@ class HN_derivative:
                ep_sub_par = popt2[4], popt2[5] 
                hn_sub = self.deri_hn(x1,*hn_sub_par)
                ep_sub = self.ep_s(x1,*ep_sub_par)
-               plt.plot(x1,hn_sub,'b',label='loss peak')
+               plt.plot(x1,hn_sub,'b',label='peak')
                plt.plot(x1,ep_sub,'g',label='Electrode Polarization')
                plt.legend()
                
@@ -784,8 +784,8 @@ class HN_derivative:
                 hn_sub_par2 = popt2[4], popt2[5],popt2[6],popt2[7]
                 hn_sub1 = self.deri_hn(x1,*hn_sub_par1)
                 hn_sub2 = self.deri_hn(x1,*hn_sub_par2)
-                plt.plot(x1,hn_sub1,'b',label='loss peak1')
-                plt.plot(x1,hn_sub2,'g',label='loss peak2')
+                plt.plot(x1,hn_sub1,'b',label='peak1')
+                plt.plot(x1,hn_sub2,'g',label='peak2')
                 plt.legend()
                 
                 b1,g1,fm1,deps1,b2,g2,fm2,deps2 = popt2[:]
