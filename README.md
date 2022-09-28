@@ -6,6 +6,7 @@ HavNeg is an acronym for Havriliak and Negami function, and the fit module is ba
 
 # Some fit examples
 
+![deri_hn](readme_figures/Figure_1.png)
 
 
 
