@@ -18,4 +18,3 @@ Mohamed Aejaz Kolmangadi
 ## LOOKING FOR HELP?
 
 Checkout the Tutorials here (https://github.com/mkolmang/Tutorials_HavNegpy)
-
