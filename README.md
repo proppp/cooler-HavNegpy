@@ -1,6 +1,6 @@
 # HavNegpy
 
-HavNegpy is a python fit package to anaylze dielectric spectrospcy data. 
+HavNegpy is a python fit package to anaylze dielectric spectroscopy data. 
 HavNeg is an acronym for Havriliak and Negami function, and the fit module is written specifically to analyze the dielectric loss and real part of AC conductivity data.
 
 

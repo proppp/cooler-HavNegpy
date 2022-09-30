@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+HavNegpy/__init__.py
+HavNegpy/conductivity.py
+HavNegpy/hn.py
+HavNegpy/hn_deri.py
+HavNegpy.egg-info/PKG-INFO
+HavNegpy.egg-info/SOURCES.txt
+HavNegpy.egg-info/dependency_links.txt
+HavNegpy.egg-info/requires.txt
+HavNegpy.egg-info/top_level.txt
