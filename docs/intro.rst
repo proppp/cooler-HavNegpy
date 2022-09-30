@@ -1,10 +1,10 @@
 Introduction
 ============
 
-``HavNegpy`` is an Python package to analyze dielectric loss and real part of conductivity.
+``HavNegpy`` is an Python package to analyze the dielectric spectrsocopy data. The package is written specifically to analyze the dielectric loss and real part of AC conductivity.
 ``HavNeg`` is an acronym for Havriliak and Negami function.
  
-The package contains three modules to analyze the dielectric data. Each module can be instantiated as::
+The package contains three modules and each module can be instantiated as::
 
               >>> import HavNegpy as h
               >>> hn = h.HN()
