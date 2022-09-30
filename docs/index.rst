@@ -10,8 +10,8 @@ Welcome to HavNegpy's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   installation.rst
    intro.rst
+   installation.rst
    hn.rst
    deri.rst
    conductivity.rst
