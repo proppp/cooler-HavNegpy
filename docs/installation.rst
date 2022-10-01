@@ -9,8 +9,14 @@ Dependencies
 Installation
 ------------
 
-``HavNegpy`` is currently not yet available on PyPI, but it can be
-installed by downloading the source code or cloning the GitHub
+``HavNegpy`` is currently available on PyPI and can be installed using the standard pip command::
+
+
+		 pip install HavNegpy    
+
+
+
+Alternatively it can be installed by downloading the source code or cloning the GitHub
 repository and running the standard::
 
 	   python setup.py install
