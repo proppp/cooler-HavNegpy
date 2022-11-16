@@ -15,6 +15,7 @@ Welcome to HavNegpy's documentation!
    hn.rst
    deri.rst
    conductivity.rst
+   modulus.rst
    HN_tutorial.ipynb
    deri_HN_tutorial.ipynb
    cond_tutorial_new.ipynb

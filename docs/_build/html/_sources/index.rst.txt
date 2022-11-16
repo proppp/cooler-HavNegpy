@@ -10,11 +10,12 @@ Welcome to HavNegpy's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   installation.rst
    intro.rst
+   installation.rst
    hn.rst
    deri.rst
    conductivity.rst
+   modulus.rst
    HN_tutorial.ipynb
    deri_HN_tutorial.ipynb
    cond_tutorial_new.ipynb
